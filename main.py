@@ -10,6 +10,7 @@ screen.tracer(0)
 
 player = Player()
 car_manager = CarManager()
+scoreboard = Scoreboard()
 
 screen.listen()
 screen.onkey(player.move, "Up")
@@ -21,8 +22,8 @@ while game_is_on:
     car_manager.move()
     for car in car_manager.cars:
         if player.is_collision_with_car(car):
-            print("Game Over")
             player.set_position()
     if player.is_finished():
+        scoreboard.update_level()
         player.set_position()
     screen.update()
