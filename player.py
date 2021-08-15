@@ -20,3 +20,12 @@ class Player(Turtle):
 
     def move(self):
         self.forward(10)
+
+    def is_collision_with_car(self, car):
+        """Detect when the turtle player collides with a car and stop the game if this happens."""
+        if self.distance(car) < 20:
+            return True
+
+    def is_finished(self):
+        if self.ycor() == FINISH_LINE_Y:
+            return True
